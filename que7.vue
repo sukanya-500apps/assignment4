@@ -3,15 +3,15 @@
     <h2>Vue Js Dropdown</h2>
     <select name="users" @change="onChange($event)" class="form-select form-control">
         <option>status</option>
-        <option @click="open()" value="open">open</option>
+        <option value="open">open</option>
         {{opendata}}
-        <option @click="closed()" value="closed">closed</option>
+        <option  value="closed">closed</option>
         {{closeddata}}
-        <option  @click="pending()" value="pending">pending</option>
-        {{pendingdata1}}<br> {{pendingdata2}}
+        <option  value="pending">pending</option>
+        {{pendingdata1}}<br>{{pendingdata2}}
         <p>{{result}}</p>
 </select>
-    
+
   </div>
 </template>
  
@@ -34,22 +34,22 @@ pendingdata1:"",
 pendingdata2:"",
           }
     },
-    methods:{
-        open(){
-             this.opendata = this.users[0];
-             console.log(this.opendata);
-        },
-        closed(){
-            this.closeddata = this.users[2];
-            console.log(this.closeddata);
-        },
-        pending(){
-            this.pendingdata1 = this.users[1];
-            this.pendingdata2 = this.users[3];
-            console.log(this.pendingdata1);
-            console.log(this.pendingdata2);
-        },
-        
+    
+        methods: {
+        onChange: function(evt){
+     var users=" ";
+            var val = evt.target.value;
+            if (val == 'status') {
+                var susers = users;
+            } else{ 
+                susers = this.users.filter(function (e)
+                {
+                   return e.status == val;
+                   });
+                   console.log(this.users);
     }
+    this.$emit("tableData",susers)
+        }
+}
 }
 </script>
