@@ -11,7 +11,6 @@
         {{pendingdata1}}<br>{{pendingdata2}}
         <p>{{result}}</p>
 </select>
-
   </div>
 </template>
  
