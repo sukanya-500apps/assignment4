@@ -1,6 +1,7 @@
 <template>
     <div id="class">
         <h2>error handling</h2>
+        <button @click="errorshandling()">catch</button>
     </div>
 </template>
 <script>
@@ -13,15 +14,14 @@ return{
     test:" "
 }
 },
-computed:{
-
-errorshandling(test) {
+methods:{
+errorshandling() {
     try{
-test = val * 45;
-console.log("test",val);
+this.test = this.val * 45;
+console.log("test",this.val);
     }
     catch{
-        console.log("ds");
+        console.log("error");
     }
 }
 }
